@@ -47,6 +47,17 @@ Difficulty presets, base turn time, position (`center` / `bottom`), success / fa
 </tr>
 </table>
 
+## 📸 Preview
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><img src="assets/readme/screenshot-round.png" alt="Skill check round in progress" width="380"><br><sub>Round in progress: press the key inside the zone</sub></td>
+<td align="center"><img src="assets/readme/screenshot-fail.png" alt="Failed skill check" width="380"><br><sub>Missed: the wheel turns red and the check fails</sub></td>
+</tr>
+</table>
+</div>
+
 ## 🔄 How it works
 
 ```mermaid
