@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JVL Skillcheck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="jvl-steel-blue.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="skillcheck" class="oculto">
+        <div class="tarjeta">
+            <svg class="rueda" viewBox="0 0 160 160" aria-hidden="true">
+                <defs>
+                    <linearGradient id="zonaGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#0ea5e9"/>
+                        <stop offset="0.6" stop-color="#38bdf8"/>
+                        <stop offset="1" stop-color="#e9eef5"/>
+                    </linearGradient>
+                    <linearGradient id="pistaGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#1b2635"/>
+                        <stop offset="1" stop-color="#0a1018"/>
+                    </linearGradient>
+                </defs>
+                <circle class="pista" cx="80" cy="80" r="62"></circle>
+                <circle class="pista-filo" cx="80" cy="80" r="62"></circle>
+                <circle id="zona" class="zona" cx="80" cy="80" r="62"></circle>
+                <g id="indicador" class="indicador">
+                    <line x1="80" y1="8" x2="80" y2="30"></line>
+                    <circle cx="80" cy="12" r="4"></circle>
+                </g>
+            </svg>
+            <div id="tecla" class="tecla">E</div>
+        </div>
+        <div id="rondas" class="rondas"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

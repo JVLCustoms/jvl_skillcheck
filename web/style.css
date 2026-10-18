@@ -1,0 +1,100 @@
+/* JVL Steel Blue skin for the skill check. Tokens come from jvl-steel-blue.css. */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: transparent;
+    font-family: var(--jvl-fuente);
+    user-select: none;
+}
+
+#skillcheck {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: opacity 0.2s ease;
+}
+#skillcheck.abajo { top: auto; bottom: 14vh; transform: translateX(-50%); }
+#skillcheck.oculto { opacity: 0; pointer-events: none; }
+
+/* No dark disc behind the wheel: only the ring, the key and a soft shadow. */
+.tarjeta {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    padding: 16px;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+}
+
+.rueda { width: 100%; height: 100%; overflow: visible; }
+
+.pista { fill: none; stroke: url(#pistaGrad); stroke-width: 10; }
+.pista-filo { fill: none; stroke: rgba(203, 213, 225, 0.18); stroke-width: 1; }
+
+.zona {
+    fill: none;
+    stroke: url(#zonaGrad);
+    stroke-width: 10;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px var(--jvl-cian));
+    transform-origin: 80px 80px;
+}
+
+.indicador { transform-origin: 80px 80px; }
+.indicador line { stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+.indicador circle { fill: #fff; filter: drop-shadow(0 0 5px #fff); }
+
+/* Key cap in the middle: steel card with the white sheen */
+.tecla {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 62px;
+    height: 62px;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    color: var(--jvl-texto);
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 16px;
+    background:
+        radial-gradient(120% 80% at 80% 0%, rgba(233, 238, 245, 0.16), transparent 50%),
+        linear-gradient(180deg, #172334, #0b121c);
+    border: 2px solid rgba(148, 197, 233, 0.25);
+    box-shadow: 0 0 20px -6px var(--jvl-cian), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.rondas { display: flex; gap: 8px; }
+.rondas span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #1a2533;
+    border: 2px solid var(--jvl-borde-fuerte);
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.rondas span.actual { background: var(--jvl-cian); box-shadow: 0 0 10px var(--jvl-cian); }
+.rondas span.hecha { background: var(--jvl-plata); box-shadow: 0 0 8px #fff; }
+.rondas span.fallo { background: var(--jvl-error); box-shadow: 0 0 8px var(--jvl-error); }
+
+/* Feedback */
+#skillcheck.exito .zona { stroke: var(--jvl-plata-clara); filter: drop-shadow(0 0 9px #fff); }
+#skillcheck.exito .tecla { box-shadow: 0 0 24px -4px var(--jvl-cian), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+#skillcheck.fallo .zona { stroke: var(--jvl-error); filter: drop-shadow(0 0 8px var(--jvl-error)); }
+#skillcheck.fallo .tarjeta { animation: sacudir 0.35s ease; }
+
+@keyframes sacudir {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-7px); }
+    40%, 80% { transform: translateX(7px); }
+}
